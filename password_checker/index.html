@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Checker</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <main class="page">
+        <section class="card">
+            <h1>Password Checker</h1>
+            <p class="subtitle">Enter a password to check if it meets the requirements.</p>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" autocomplete="off" placeholder="Type your password">
+
+            <p id="message" class="message neutral">Start typing a password...</p>
+
+            <ul class="requirements">
+                <li>At least 6 characters</li>
+                <li>At least 1 uppercase letter</li>
+                <li>At least 1 lowercase letter</li>
+                <li>At least 1 digit</li>
+                <li>At least 1 symbol</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        const passwordInput = document.getElementById("password");
+        const message = document.getElementById("message");
+
+        passwordInput.addEventListener("input", async function () {
+            const password = passwordInput.value;
+
+            if (password.length === 0) {
+                passwordInput.classList.remove("good", "bad");
+                message.className = "message neutral";
+                message.textContent = "Start typing a password...";
+                return;
+            }
+
+            try {
+                const response = await fetch("process.php", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: "password=" + encodeURIComponent(password)
+                });
+
+                const result = await response.text();
+
+                passwordInput.classList.remove("good", "bad");
+                message.classList.remove("success", "error", "neutral");
+
+                if (result === "OK") {
+                    passwordInput.classList.add("good");
+                    message.classList.add("success");
+                    message.textContent = "Strong password";
+                } else {
+                    passwordInput.classList.add("bad");
+                    message.classList.add("error");
+
+                    if (result === "SHORT") {
+                        message.textContent = "Password must be at least 6 characters.";
+                    } else if (result === "NO_UPPER") {
+                        message.textContent = "Password must contain an uppercase letter.";
+                    } else if (result === "NO_LOWER") {
+                        message.textContent = "Password must contain a lowercase letter.";
+                    } else if (result === "NO_DIGIT") {
+                        message.textContent = "Password must contain a digit.";
+                    } else if (result === "NO_SYMBOL") {
+                        message.textContent = "Password must contain a symbol.";
+                    } else {
+                        message.textContent = "Unable to validate password.";
+                    }
+                }
+            } catch (error) {
+                passwordInput.classList.remove("good");
+                passwordInput.classList.add("bad");
+                message.className = "message error";
+                message.textContent = "Server error";
+            }
+        });
+    </script>
+</body>
+</html>

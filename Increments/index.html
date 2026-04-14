@@ -1,0 +1,115 @@
+<!--
+  Author: Aarynjeet Gill & Shreyas Hegde
+  Date Created: 2026-02-23
+  Description: Main HTML page for the Basketball Clicker incremental game.
+               Provides the structure for all four game areas: click area,
+               upgrade shop, scoreboard, and rewards display.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basketball Clicker</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="congrats-banner" class="congrats-banner hidden">
+    <p id="congrats-message"></p>
+  </div>
+
+  <div id="help-panel" class="help-panel hidden">
+    <div class="help-content">
+      <h2>How to Play</h2>
+      <p>Click the basketball to score points. Spend your points on upgrades to score even faster!</p>
+
+      <h3>Upgrades</h3>
+      <ul>
+        <li><strong>Better Shoes</strong> &mdash; +1 to click value per purchase. Train harder with better gear.</li>
+        <li><strong>Shooting Coach</strong> &mdash; +3 to click value per purchase. A coach sharpens your shot.</li>
+        <li><strong>MVP Training</strong> &mdash; +10 to click value per purchase. Elite training for elite players.</li>
+        <li><strong>Team Spirit</strong> &mdash; +5 to click value per purchase. Rally the crowd behind you.</li>
+        <li><strong>Ball Boy</strong> &mdash; Auto-clicker. Each purchase makes it tick faster. Only one timer runs at a time.</li>
+      </ul>
+
+      <h3>Rewards</h3>
+      <ul>
+        <li><strong>First Basket</strong> &mdash; Score 100 total points.</li>
+        <li><strong>Rising Star</strong> &mdash; Score 1,000 total points.</li>
+        <li><strong>All-Star</strong> &mdash; Score 10,000 total points.</li>
+        <li><strong>Rookie Contract</strong> &mdash; Purchase your first upgrade.</li>
+        <li><strong>Team Player</strong> &mdash; Purchase 5 total upgrades.</li>
+        <li><strong>On Autopilot</strong> &mdash; Activate the Ball Boy auto-clicker.</li>
+      </ul>
+
+      <button id="help-close-btn" class="help-close-btn">Close</button>
+    </div>
+  </div>
+
+  <header class="top-bar">
+    <h1>&#127936; Basketball Clicker</h1>
+    <button id="help-btn" class="help-btn">? Help</button>
+  </header>
+
+  <main class="game-container">
+
+    <section id="click-area" class="panel click-area">
+      <h2>Tap the Ball!</h2>
+      <button id="basketball-btn" class="basketball-btn" aria-label="Click to score points">&#127936;</button>
+      <p class="click-info">+<span id="click-value-display">1</span> per click</p>
+    </section>
+
+    <section id="scoreboard" class="panel scoreboard">
+      <h2>Scoreboard</h2>
+
+      <div class="stat-row">
+        <span class="stat-label">Points:</span>
+        <span id="resource-count" class="stat-value">0</span>
+      </div>
+
+      <div class="progress-wrapper">
+        <span class="progress-label" id="progress-label">Next milestone: 100</span>
+        <div class="progress-bar-track">
+          <div id="progress-bar-fill" class="progress-bar-fill" style="width:0%"></div>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-label">Click Value:</span>
+        <span id="click-value-stat" class="stat-value">1</span>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-label">Total Upgrades:</span>
+        <span id="total-upgrades-stat" class="stat-value">0</span>
+      </div>
+
+      <div class="stat-row">
+        <span class="stat-label">Total Points Earned:</span>
+        <span id="total-earned-stat" class="stat-value">0</span>
+      </div>
+
+      <div class="star-rating">
+        <span class="stat-label">Power Tier:</span>
+        <span id="star-display" class="stars"></span>
+      </div>
+    </section>
+
+    <section id="upgrade-area" class="panel upgrade-area">
+      <h2>Upgrade Shop</h2>
+      <div id="upgrade-list" class="upgrade-list">
+      </div>
+    </section>
+
+    <section id="rewards-area" class="panel rewards-area">
+      <h2>Trophies</h2>
+      <div id="rewards-list" class="rewards-list">
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/game.js"></script>
+</body>
+</html>

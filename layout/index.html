@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--
+Author: Aarynjeet Gill
+Macid: gilla156
+Description: html file for the web layout assignment from 1xd3
+-->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <title>Web Layout — gilla156</title>
+</head>
+
+<body>
+  <div class="layoutFrame">
+<header class="header">
+
+  <nav class="navBar">
+    <ul class="navLinks">
+
+      
+      <li class="navBurger">
+        <button class="menuBtn" type="button" aria-label="Menu">☰</button>
+      </li>
+
+      <li class="navLink"><a href="https://example.com" target="_blank">Headlines</a></li>
+      <li class="navLink"><a href="https://example.com" target="_blank">Politics</a></li>
+      <li class="navLink"><a href="https://example.com" target="_blank">Sports</a></li>
+      <li class="navLink"><a href="https://example.com" target="_blank">Business</a></li>
+      <li class="navLink"><a href="https://example.com" target="_blank">Local</a></li>
+      <li class="navLink"><a href="https://example.com" target="_blank">Arts</a></li>
+      <li class="navLink"><a href="https://example.com" target="_blank">Weather</a></li>
+    </ul>
+  </nav>
+
+  <h1 class="Title">The Daily News</h1>
+</header>
+
+
+    <main class="pageMain">
+      <section class="newsGrid">
+
+        <!-- LEFT: big stories -->
+        <div class="featureCol">
+          <article class="story story--feature">
+            <img class="storyImg" src="./images/Story1.avif" alt="News image 1" />
+            <h2 class="storyTitle storyTitle--feature">We’ve already been to the moon, so why are we going again?</h2>
+            <p class="storyText">
+              <span class="leadSentence">On July 20, 1969, the world watched with bated breath as two American astronauts — Neil Armstrong and Buzz Aldrin — glided across the surface of the moon, with command module pilot Michael Collins watching from above.</span>
+              <span class="restText"> It was supposed to usher in a new era: the space age. Humans escaping the “surly bonds of Earth” and expanding out into space. But after six more missions (including Apollo 13, which famously suffered an accident that precluded them from landing on the lunar surface), humanity’s moon dreams were put to rest following Apollo 17 in December 1972.</span>
+            </p>
+          </article>
+
+          <article class="story story--feature">
+            <img class="storyImg" src="./images/Story2.png" alt="News image 2" />
+            <h2 class="storyTitle storyTitle--feature">AI model from Google's DeepMind reads recipe for life in DNA</h2>
+            <p class="storyText">
+              <span class="leadSentence">An AI model developed by Google's DeepMind could transform our understanding of DNA — the complete recipe for building and running the human body — and its impact on disease and medicine discovery, according to researchers.</span>
+              <span class="restText"> Called AlphaGenome, the model could help scientists discover why subtle differences in our DNA put us at risk of conditions such as high blood pressure, dementia and obesity. It could also dramatically accelerate our understanding of genetic diseases and cancer. The developers of the model acknowledge it's not perfect, but experts have described it as "an incredible feat" and "a major milestone".</span>
+            </p>
+          </article>
+        </div>
+
+        <!-- RIGHT: small stories -->
+        <div class="cardsCol">
+          <article class="story story--card">
+            <img class="storyImg" src="./images/Story3.png" alt="News image 3" />
+            <h2 class="storyTitle">The ultra-cold temperatures needed for epic nuclear science</h2>
+            <p class="storyText">
+              <span class="leadSentence">It's one of the most famous scientific installations in the world – and it's getting a cool upgrade.</span>
+              <span class="restText"> Physicists use the Large Hadron Collider (LHC), buried in the ground on the border between France and Switzerland, to unravel secrets of the tiny particles that make up our Universe. The LHC works by smashing some of these particles into one another and observing what happens when they collide. By the 2030s, the LHC – built by the European Organization for Nuclear Research (Cern) – will produce many more of these collisions.</span>
+            </p>
+          </article>
+
+          <article class="story story--card">
+            <img class="storyImg" src="./images/Story4.png" alt="News image 4" />
+            <h2 class="storyTitle">Why sports stars who head the ball are much more likely to die of Alzheimer's, Parkinson's and motor neurone disease</h2>
+            <p class="storyText">
+              <span class="leadSentence">If you're a football player, there's nothing quite like the rush of leaping towards a ball hurtling towards you at great speed, heading it into the net, and scoring a goal for your team.</span>
+              <span class="restText"> Yet evidence is mounting that repeatedly doing so can lead to brain damage that manifests decades later as Alzheimer's, Parkinson's and motor neurone disease. The dangers of contact sports have actually been known about for almost 100 years. In 1928, US pathologist Harrison Martland published a scientific article arguing that, "for some time, fight fans and promoters have recognised a peculiar condition occurring among prize fighters which, in ring parlance, they speak of as 'punch drunk'."</span>
+            </p>
+          </article>
+
+          <article class="story story--card">
+            <img class="storyImg" src="./images/Story5.png" alt="News image 5" />
+            <h2 class="storyTitle">Mercury: The planet that shouldn't exist</h2>
+            <p class="storyText">
+              <span class="leadSentence">At a cursory glance, Mercury might well be the Solar System's dullest planet.</span>
+              <span class="restText"> Its barren surface has few notable features, there is no evidence of water in its past and the planet's wispy atmosphere is tenuous at best. The likelihood of life being found amidst its scotched craters is non-existent. Yet, look closer and Mercury is a fascinating, improbable world that is shrouded in mystery.</span>
+            </p>
+          </article>
+
+          <article class="story story--card story--desktopOnly">
+            <img class="storyImg" src="./images/Story6.png" alt="News image 6" />
+            <h2 class="storyTitle">Driverless taxis set to launch in UK as soon as September</h2>
+            <p class="storyText">
+              <span class="leadSentence">Waymo, the US driverless car firm, said it hopes to be operating a robotaxi service in London as soon as September this year.</span>
+              <span class="restText"> The UK government has said it plans to change regulations in the second half of 2026 to enable driverless taxis to operate in the city but has not given a specific date. Waymo said a pilot service will launch in April and Local Transport Minister Lilian Greenwood said: "We're supporting Waymo and other operators through our passenger pilots, and pro-innovation regulations to make self-driving cars a reality on British roads." The firm, which is owned by Google-parent Alphabet, showed off a fleet of cars it brought to the UK at London's Transport Museum on Wednesday.</span>
+            </p>
+          </article>
+
+          <article class="story story--card story--desktopOnly">
+            <img class="storyImg" src="./images/Story7.png" alt="News image 7" />
+            <h2 class="storyTitle">The 20 best places to travel in 2026</h2>
+            <p class="storyText">
+              <span class="leadSentence">We love Dubrovnik – but so does everyone else.</span>
+              <span class="restText"> Yet, many visitors to Croatia may not know that nearby Montenegro is also home to beautiful seaside settlements, plus new hiking trails that connect mountain communities. Across the water from always-trendy Buenos Aires, Montevideo offers similar world-class tango, steaks and architecture, and is one of South America's greenest cities. And while Rome may be eternal, Algeria's got the ancient ruins without the crowds.</span>
+            </p>
+          </article>
+
+          <article class="story story--card story--desktopOnly">
+            <img class="storyImg" src="./images/Story8.png" alt="News image 8" />
+            <h2 class="storyTitle">An iconic Indian restaurant might have to shut after 99 years. Can the King save it?</h2>
+            <p class="storyText">
+              <span class="leadSentence">Campaigners trying to prevent the closure of the UK's oldest surviving Indian restaurant are going to take a petition to Buckingham Palace in the next few weeks, calling on King Charles III to intervene.</span>
+              <span class="restText"> Veeraswamy, a restaurant founded in 1926 and still in its original location on London's Regent Street, faces not having its lease renewed in a dispute with its landlord, the Crown Estate. King Charles has been an advocate for building links between communities and the restaurant's supporters are calling for his backing to protect it as "a living piece of shared cultural history". But the Crown Estate says the building needs a refurbishment that's not compatible with the restaurant remaining.</span>
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pageFooter">
+      <div class="footerGrid">
+        <section class="footCol">
+          <h3 class="footTitle"><a href="https://example.com" target="_blank">Subscribe</a></h3>
+          <a class="footLink" href="https://example.com" target="_blank">Digital Access</a>
+          <a class="footLink" href="https://example.com" target="_blank">Home Delivery</a>
+          <a class="footLink" href="https://example.com" target="_blank">Gift Subscriptions</a>
+        </section>
+
+        <section class="footCol">
+          <h3 class="footTitle"><a href="https://example.com" target="_blank">Account</a></h3>
+          <a class="footLink" href="https://example.com" target="_blank">Log In</a>
+          <a class="footLink" href="https://example.com" target="_blank">Manage</a>
+          <a class="footLink" href="https://example.com" target="_blank">Delivery</a>
+        </section>
+
+        <section class="footCol">
+          <h3 class="footTitle"><a href="https://example.com" target="_blank">Contact</a></h3>
+          <a class="footLink" href="https://example.com" target="_blank">Tip Hotline</a>
+          <a class="footLink" href="https://example.com" target="_blank">Help &amp; FAQs</a>
+          <a class="footLink" href="https://example.com" target="_blank">Advertising</a>
+        </section>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

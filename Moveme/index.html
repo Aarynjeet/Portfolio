@@ -1,0 +1,94 @@
+<!--
+AUTHOR: Aarynjeet Gill
+CONTENT: 4.2
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Move Me</title>
+    <meta charset="UTF-8">
+
+    <style>
+        #container {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 500px;
+            height: 500px;
+            border: 10px solid black;
+            border-radius: 70px;
+        }
+
+        #moveme {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            border-radius: 100px;
+            border: 10px solid black;
+        }
+    </style>
+
+    <script>
+        // track current position
+        let x = 0;
+        let y = 0;
+
+        const STEP = 20;
+        const BOX_SIZE = 500;
+        const CIRCLE_SIZE = 100;
+
+        // PART (a): random move
+        function randomMove() {
+            if (!confirm("Move the circle?")) return;
+
+            x = Math.floor(Math.random() * (BOX_SIZE - CIRCLE_SIZE));
+            y = Math.floor(Math.random() * (BOX_SIZE - CIRCLE_SIZE));
+
+            updatePosition();
+        }
+
+        // PART (b) + (c): controlled movement with bounds
+        function moveControlled() {
+            let choice = prompt("Enter U, D, L, R, or Q:");
+
+            if (!choice) return;
+
+            choice = choice.toUpperCase();
+
+            if (choice === "Q") return;
+
+            if (choice === "U") y -= STEP;
+            if (choice === "D") y += STEP;
+            if (choice === "L") x -= STEP;
+            if (choice === "R") x += STEP;
+
+            // PART (c): prevent out-of-bounds
+            if (x < 0) x = 0;
+            if (y < 0) y = 0;
+            if (x > BOX_SIZE - CIRCLE_SIZE) x = BOX_SIZE - CIRCLE_SIZE;
+            if (y > BOX_SIZE - CIRCLE_SIZE) y = BOX_SIZE - CIRCLE_SIZE;
+
+            updatePosition();
+        }
+
+        function updatePosition() {
+            let circle = document.getElementById("moveme");
+            circle.style.left = x + "px";
+            circle.style.top = y + "px";
+        }
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="moveme"></div>
+    </div>
+
+    <p>
+        Run <code>randomMove()</code> or <code>moveControlled()</code> from the console.
+    </p>
+</body>
+</html>

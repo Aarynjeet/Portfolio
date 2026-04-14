@@ -1,0 +1,33 @@
+<!--
+AUTHOR: Aarynjeet Gill
+CONTENT: 4.2
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>innerHTML Example 2</title>
+    <style>
+        div {
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        function changeDiv() {
+            let n = parseInt(prompt("Enter a positive integer:"));
+            let output = "";
+
+            for (let i = 1; i <= n; i++) {
+                output += "<p>" + i + "</p>";
+            }
+
+            document.getElementById("target").innerHTML = output;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>innerHTML Example</h1>
+    <div id="target">This text will be replaced.</div>

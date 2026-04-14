@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <h1>Tip Calculator</h1>
+    <form id="tipForm" action="tip_calculator.php" method="POST" novalidate>
+
+        <label for="serverName">Server Name:</label>
+        <input type="text" id="serverName" name="serverName" required
+               placeholder="Enter server's name">
+
+        <label for="email">Customer Email:</label>
+        <input type="email" id="email" name="email" required
+               placeholder="you@example.com">
+
+        <label for="emailConfirm">Confirm Email:</label>
+        <input type="email" id="emailConfirm" name="emailConfirm" required
+               placeholder="Re-enter your email">
+        <span id="emailError" class="error-msg">❌ Email addresses do not match!</span>
+
+        <label for="billAmount">Bill Amount ($):</label>
+        <input type="number" id="billAmount" name="billAmount"
+               step="0.01" min="0.01" required
+               placeholder="0.00">
+
+        <label for="tipPercent">Tip Percentage (%):</label>
+        <input type="number" id="tipPercent" name="tipPercent"
+               min="0" step="1" required
+               placeholder="e.g. 15">
+
+        <label for="creditCard">Credit Card Number:</label>
+        <input type="text" id="creditCard" name="creditCard" required
+               pattern="\d{16}" maxlength="16"
+               placeholder="16-digit card number">
+        <span id="ccError" class="error-msg">❌ Must be exactly 16 digits.</span>
+
+        <button type="submit">Calculate Tip</button>
+    </form>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

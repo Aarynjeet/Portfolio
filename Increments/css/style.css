@@ -1,0 +1,379 @@
+/*
+  Author: Aarynjeet Gill & Shreyas Hegde
+  Date Created: 2026-02-23
+  Description: Stylesheet for the Basketball Clicker incremental game.
+               Handles layout, panel styling, button states, progress bar,
+               reward badges, congratulations banner, and help panel.
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+  min-height: 100vh;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: #16213e;
+  border-bottom: 3px solid #e94560;
+}
+
+.top-bar h1 {
+  font-size: 1.5rem;
+  color: #e94560;
+  letter-spacing: 1px;
+}
+
+.help-btn {
+  background: none;
+  border: 2px solid #e94560;
+  color: #e94560;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.help-btn:hover {
+  background-color: #e94560;
+  color: #fff;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 16px;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.panel {
+  background-color: #16213e;
+  border: 1px solid #0f3460;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.panel h2 {
+  font-size: 1.15rem;
+  margin-bottom: 14px;
+  color: #e94560;
+  border-bottom: 1px solid #0f3460;
+  padding-bottom: 8px;
+}
+
+.click-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.basketball-btn {
+  font-size: 6rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.08s;
+  line-height: 1;
+  user-select: none;
+}
+
+.basketball-btn:active {
+  transform: scale(0.88);
+}
+
+.click-info {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #aaa;
+}
+
+.scoreboard .stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #0f3460;
+}
+
+.stat-label {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.stat-value {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.progress-wrapper {
+  margin: 12px 0;
+}
+
+.progress-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.progress-bar-track {
+  width: 100%;
+  height: 14px;
+  background-color: #0f3460;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #e94560, #ff6b6b);
+  border-radius: 7px;
+  transition: width 0.3s ease;
+}
+
+.star-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.stars {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.upgrade-area {
+  grid-column: 1 / 2;
+}
+
+.upgrade-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.upgrade-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a2e;
+  border: 1px solid #0f3460;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.upgrade-info {
+  flex: 1;
+}
+
+.upgrade-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.upgrade-desc {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 2px;
+}
+
+.upgrade-price {
+  font-size: 0.82rem;
+  color: #e94560;
+  margin-top: 4px;
+}
+
+.upgrade-buy-btn {
+  background-color: #e94560;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.2s, opacity 0.2s;
+  margin-left: 12px;
+  white-space: nowrap;
+}
+
+.upgrade-buy-btn:hover:not(:disabled) {
+  background-color: #ff6b6b;
+}
+
+.upgrade-buy-btn:disabled {
+  background-color: #444;
+  color: #777;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.rewards-area {
+  grid-column: 2 / 3;
+}
+
+.rewards-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.reward-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a2e;
+  border: 1px solid #0f3460;
+  border-radius: 8px;
+  padding: 14px 8px;
+  text-align: center;
+  min-height: 100px;
+}
+
+.reward-slot.locked .reward-icon {
+  filter: grayscale(100%) brightness(0.3);
+}
+
+.reward-slot.earned {
+  border-color: #e94560;
+  background-color: #1e1535;
+}
+
+.reward-icon {
+  font-size: 2rem;
+  margin-bottom: 6px;
+}
+
+.reward-label {
+  font-size: 0.7rem;
+  color: #888;
+}
+
+.reward-slot.earned .reward-label {
+  color: #e94560;
+  font-weight: 600;
+}
+
+.congrats-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: linear-gradient(90deg, #e94560, #ff6b6b);
+  color: #fff;
+  text-align: center;
+  padding: 16px 20px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 20px rgba(233, 69, 96, 0.5);
+  animation: slideDown 0.4s ease;
+}
+
+.congrats-banner.hidden {
+  display: none;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(0); }
+}
+
+.help-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.help-panel.hidden {
+  display: none;
+}
+
+.help-content {
+  background-color: #16213e;
+  border: 2px solid #e94560;
+  border-radius: 12px;
+  padding: 28px 32px;
+  max-width: 520px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  color: #e0e0e0;
+}
+
+.help-content h2 {
+  color: #e94560;
+  margin-bottom: 10px;
+}
+
+.help-content h3 {
+  color: #ff6b6b;
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.help-content p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.help-content ul {
+  list-style: disc;
+  padding-left: 20px;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.help-close-btn {
+  margin-top: 18px;
+  background-color: #e94560;
+  color: #fff;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.help-close-btn:hover {
+  background-color: #ff6b6b;
+}
+
+@media (max-width: 700px) {
+  .game-container {
+    grid-template-columns: 1fr;
+  }
+
+  .upgrade-area,
+  .rewards-area {
+    grid-column: auto;
+  }
+}

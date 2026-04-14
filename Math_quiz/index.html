@@ -1,0 +1,62 @@
+<!--
+AUTHOR: Aarynjeet Gill
+CONTENT: 4.1
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Arithmetic Quiz</title>
+</head>
+<body>
+<script>
+  function randInt() {
+    // integers from -100 to 100
+    return Math.floor(Math.random() * 201) - 100;
+  }
+
+  let keepGoing = true;
+
+  while (keepGoing) {
+    const a = randInt();
+    const b = randInt();
+    const correct = a + b;
+
+    // keep presenting until they get it right (or they cancel the prompt)
+    while (true) {
+      const input = prompt(`What is ${a} + ${b}?`);
+
+      // If they hit Cancel on the prompt, treat it like quitting this quiz session.
+      if (input === null) {
+        keepGoing = false;
+        break;
+      }
+
+      const guess = Number(input);
+
+      if (Number.isNaN(guess)) {
+        alert("Please enter a number.");
+        continue;
+      }
+
+      if (guess === correct) {
+        alert("Correct!");
+        break;
+      } else {
+        alert("Incorrect. Try again.");
+      }
+    }
+
+    // If they cancelled the prompt, exit without asking confirm
+    if (!keepGoing) break;
+
+    // Ask if they want another question
+    keepGoing = confirm("Would you like another question?");
+  }
+
+  // Page finishes loading and shows goodbye message
+  document.body.innerHTML = "<h1>Goodbye!</h1>";
+</script>
+</body>
+</html>

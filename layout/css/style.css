@@ -1,0 +1,217 @@
+/*
+Author: Aarynjeet Gill
+Macid: gilla156
+Description: CSS for CS 1XD3 Web Layout Assignment
+*/
+
+/* global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #333;
+}
+
+html { font-size: 16px; }
+
+body {
+  padding: 10px; 
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background: #ffffff;
+}
+
+
+.layoutFrame {
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+}
+
+
+/* ---------------- HEADER (all sizes) ---------------- */
+.header { width: 100%; }
+
+
+.navLinks {
+  display: flex;
+  align-items: stretch;
+  list-style: none;
+  border-bottom: 3px solid #333;
+}
+
+
+.navBurger {
+  flex: 0 0 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 2px solid #333;
+}
+
+.menuBtn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+
+.navLink {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  border-right: 2px solid #333;
+}
+
+.navLinks li:last-child { border-right: none; }
+
+.navLink a {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.navLink a:hover { color: #616161; }
+
+
+.Title {
+  border-bottom: 3px solid #333;
+  padding: 12px 0;
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+/* ---------------- MAIN LAYOUT (Desktop base) ---------------- */
+.pageMain { padding: 12px; }
+
+.newsGrid {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.featureCol { display: grid; gap: 16px; }
+
+.cardsCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.story { padding: 10px; border: none; }
+
+.storyImg { width: 100%; height: auto; display: block; }
+
+.storyTitle { margin-top: 8px; font-size: 1rem; }
+
+.storyTitle--feature { font-size: 1.25rem; }
+
+.storyText { margin-top: 6px; font-size: 0.85rem; line-height: 1.35; }
+
+.leadSentence { display: inline; }
+.restText { display: inline; }
+
+/* ---------------- FOOTER ---------------- */
+.pageFooter { margin-top: 12px; }
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #d0d0d0;
+  padding: 14px;
+  gap: 10px;
+}
+
+.footCol {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+  text-align: left;
+}
+
+.footTitle a { font-size: 1.05rem; font-weight: 800; }
+
+.footLink { font-size: 0.9rem; }
+
+.footLink:hover, .footTitle a:hover { color: #616161; }
+
+/* ---------------- TABLET (481–768) ---------------- */
+@media (min-width: 481px) and (max-width: 768px) {
+  .Title { font-size: 1.6rem; }
+
+  
+  .navLinks li:nth-child(3),
+  .navLinks li:nth-child(5),
+  .navLinks li:nth-child(7) {
+    display: none;
+  }
+
+  .newsGrid { grid-template-columns: 1.6fr 1fr; }
+  .cardsCol { grid-template-columns: 1fr; }
+
+  .story--desktopOnly { display: none; }
+  .cardsCol .restText { display: none; }
+}
+
+/* ---------------- MOBILE (<= 480) ---------------- */
+@media (max-width: 480px) {
+  body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: #f7f7f7;
+  }
+
+  
+  .navLink { display: none; }
+
+  .navLinks{
+    position:absolute;
+    left: 10px;
+    top: 22px;
+    border: none;
+  }
+
+  .navBurger{
+    border: none;
+  }
+
+  .Title { font-size: 1.1rem; }
+
+  .newsGrid { grid-template-columns: 1fr; }
+  .cardsCol { grid-template-columns: 1fr; }
+
+  .story--desktopOnly { display: none; }
+  .restText { display: none; }
+}
+
+
+@media (max-width: 480px) {
+  .footerGrid{
+    display: grid;
+    grid-template-columns: 1fr;   
+    gap: 14px;
+    text-align: left;
+  }
+
+  .footCol{
+    display: block;               
+  }
+
+  .footTitle{
+    margin-bottom: 4px;
+  }
+
+  .footLink{
+    display: inline;
+  }
+
+  .footLink + .footLink::before{
+    content: " | ";
+    padding: 0 4px;
+    color: #333;
+  }
+}

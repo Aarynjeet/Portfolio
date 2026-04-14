@@ -1,0 +1,64 @@
+Lab 10.1 SQL Exercises
+
+SELECT * FROM orderdetails;
+
+SELECT *
+FROM orderdetails
+WHERE OrderID = 10281;
+
+SELECT ProductID
+FROM orderdetails
+WHERE Quantity > 90
+ORDER BY Quantity DESC;
+
+SELECT ProductID
+FROM orderdetails
+ORDER BY Quantity DESC
+LIMIT 1;
+
+INSERT INTO employees (LastName, FirstName, BirthDate, Notes)
+VALUES (
+'Smith',
+'Amy',
+'1969-11-02',
+'B.A. in Basket Weaving from University of South Southwestern Ontario'
+);
+
+SELECT *
+FROM employees
+WHERE FirstName = 'Amy' AND LastName = 'Smith';
+
+SELECT SupplierID
+FROM suppliers
+WHERE SupplierName = 'Bigfoot Breweries';
+
+UPDATE suppliers
+SET ContactName = 'Mary Shelley',
+Phone = '(503) 555-4242'
+WHERE SupplierName = 'Bigfoot Breweries';
+
+SELECT *
+FROM suppliers
+WHERE SupplierName = 'Bigfoot Breweries';
+
+UPDATE orderdetails
+SET Quantity = Quantity + 10;
+
+UPDATE products
+SET Price = Price * 0.5
+WHERE Price > 10;
+
+SELECT *
+FROM products
+WHERE Price <= 10;
+
+DELETE FROM products
+WHERE Price <= 10;
+
+SELECT *
+FROM products
+WHERE Price <= 10;
+
+SELECT *
+FROM products
+WHERE Price > 10;

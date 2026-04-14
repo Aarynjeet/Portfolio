@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>City Population Search</title>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+<h1>City Population Search</h1>
+
+<form id="cityForm">
+<div class="form-group">
+<label for="min">Minimum Population</label>
+<input type="number" id="min" required>
+</div>
+
+<div class="form-group">
+<label for="max">Maximum Population</label>
+<input type="number" id="max" required>
+</div>
+
+<button type="submit">Search</button>
+</form>
+
+<p id="message"></p>
+
+<div id="results"></div>
+</div>
+
+<script>
+const form = document.getElementById("cityForm");
+const message = document.getElementById("message");
+const results = document.getElementById("results");
+
+form.addEventListener("submit", async function(e){
+e.preventDefault();
+
+const min = document.getElementById("min").value;
+const max = document.getElementById("max").value;
+
+message.textContent = "Loading...";
+results.innerHTML = "";
+
+try{
+
+const response = await fetch("process.php",{
+method:"POST",
+headers:{
+"Content-Type":"application/x-www-form-urlencoded"
+},
+body:`min=${min}&max=${max}`
+});
+
+const data = await response.json();
+
+if(data.error){
+message.textContent = data.error;
+return;
+}
+
+message.textContent = `Found ${data.length} cities`;
+
+let html = "";
+
+data.forEach(city=>{
+html += `
+<div class="card">
+<h3>${city.Name}</h3>
+<p><strong>Country:</strong> ${city.CountryCode}</p>
+<p><strong>District:</strong> ${city.District}</p>
+<p><strong>Population:</strong> ${Number(city.Population).toLocaleString()}</p>
+</div>
+`;
+});
+
+results.innerHTML = html;
+
+}catch(err){
+message.textContent = "Error loading cities";
+}
+
+});
+</script>
+
+</body>
+</html>
